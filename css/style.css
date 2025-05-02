@@ -10,13 +10,13 @@ body {
 }
 
 .contenedor-principal {
-    background: #ffffff;
-    padding: 30px;
-    margin-top: 60px;
+    max-width: 90%;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -110,27 +110,24 @@ li:hover {
 
 /* Celulares: hasta 480px */
 @media (max-width: 480px) {
-    .contenedor-principal {
-        padding: 15px;
-        margin-top: 30px;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    button {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     h2 {
-        font-size: 20px;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px;
+        font-size: 18px;
+        text-align: center;
     }
 
     li {
         font-size: 14px;
-        padding: 10px;
     }
 }
+
