@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Kaushan+Script&display=swap');
+
+
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Great Vibes', cursive;
     background: #fff0f5; /* rosa claro */
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
 }
 
 .contenedor-principal {
-    max-width: 90%;
     width: 100%;
+    max-width: 900px;
     margin: 30px auto;
     padding: 20px;
     background-color: white;
@@ -64,7 +67,7 @@ button:hover {
     background-color: #a0136f;
 }
 
-h3{
+h3 {
     color: #c71585;
     margin-bottom: 20px;
 }
@@ -82,6 +85,9 @@ li {
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li:hover {
@@ -90,10 +96,53 @@ li:hover {
     color: #6a0dad;
 }
 
-/* Tablet: hasta 768px */
+.btn-pequeno {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-pequeno.rojo {
+    background-color: #ff6b81;
+    color: white;
+}
+
+.btn-pequeno.rojo:hover {
+    background-color: #e0435a;
+}
+
+/* CONTENEDOR GENERAL DE TODAS LAS LISTAS */
+#todasLasListas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ESTILOS PARA CADA LISTA */
+.lista {
+    flex: 1 1 300px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #f8e1f4; /* color pastel por defecto */
+}
+
+/* COLORES DIFERENTES POR CLASE */
+.lista.pastel-rosa { background-color: #ffe4e1; }
+.lista.pastel-amarillo { background-color: #fff9c4; }
+.lista.pastel-verde { background-color: #d0f0c0; }
+.lista.pastel-morado { background-color: #e6e6fa; }
+
+/* TABLETS */
 @media (max-width: 768px) {
     .contenedor-principal {
-        padding: 20px;
+        width: 80%;
+        padding: 20px; /* ya tiene padding */
         margin-top: 40px;
     }
 
@@ -106,10 +155,23 @@ li:hover {
         font-size: 15px;
         padding: 10px 14px;
     }
+
+    #todasLasListas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lista {
+        width: 90%;
+    }
 }
 
-/* Celulares: hasta 480px */
+/* CELULARES */
 @media (max-width: 480px) {
+    .contenedor-principal {
+        padding: 10px 20px; /* Asegura que haya espacio en todos los lados */
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -117,8 +179,9 @@ li:hover {
 
     input[type="text"],
     button {
-        width: 90%;
+        width: 100%;
         box-sizing: border-box;
+        margin-bottom: 10px;
     }
 
     h2 {
@@ -129,5 +192,32 @@ li:hover {
     li {
         font-size: 14px;
     }
+
+    #todasLasListas {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lista {
+        width: 100%;
+    }
+
+    .lista form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lista form input[type="text"],
+    .lista form button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .btn-pequeno {
+        width: 100%;
+        margin-top: 5px;
+    }
 }
+
 

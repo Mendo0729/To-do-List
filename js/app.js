@@ -1,32 +1,71 @@
-let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+let listas = JSON.parse(localStorage.getItem("listas")) || {};
 
-function mostrarTareas() {
-  const lista = document.getElementById('lista');
-  lista.innerHTML = '';
-  tareas.forEach((tarea, index) => {
-    const li = document.createElement('li');
-    li.textContent = tarea;
-    li.onclick = () => eliminarTarea(index);
-    lista.appendChild(li);
-  });
-}
+window.onload = mostrarListas;
 
-function agregarTarea() {
-  const input = document.getElementById('nuevaTarea');
-  const tareaTexto = input.value.trim();
-  if (tareaTexto !== '') {
-    tareas.push(tareaTexto);
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-    input.value = '';
-    mostrarTareas();
+function crearLista() {
+  const nombre = document.getElementById("nombreLista").value.trim();
+  if (nombre && !listas[nombre]) {
+    listas[nombre] = [];
+    guardarListas();
+    mostrarListas();
+    document.getElementById("nombreLista").value = "";
   }
 }
 
-function eliminarTarea(index) {
-  tareas.splice(index, 1);
-  localStorage.setItem('tareas', JSON.stringify(tareas));
-  mostrarTareas();
+function agregarTarea(nombreLista, inputId) {
+  const input = document.getElementById(inputId);
+  const tarea = input.value.trim();
+  if (tarea) {
+    listas[nombreLista].push(tarea);
+    guardarListas();
+    mostrarListas();
+  }
 }
 
-// Cargar las tareas al abrir la página
-mostrarTareas();
+function eliminarTarea(nombreLista, index) {
+  listas[nombreLista].splice(index, 1);
+  guardarListas();
+  mostrarListas();
+}
+
+function eliminarLista(nombreLista) {
+  delete listas[nombreLista];
+  guardarListas();
+  mostrarListas();
+}
+
+function guardarListas() {
+  localStorage.setItem("listas", JSON.stringify(listas));
+}
+
+function mostrarListas() {
+  const contenedor = document.getElementById("todasLasListas");
+  contenedor.innerHTML = "";
+
+  const colores = ["pastel-rosa", "pastel-amarillo", "pastel-verde", "pastel-morado"];
+  let i = 0;
+
+  for (let nombre in listas) {
+    const listaDiv = document.createElement("div");
+    listaDiv.className = `lista ${colores[i % colores.length]}`;
+    i++;
+
+    const tareasHTML = listas[nombre].map((tarea, index) => `
+      <li>
+        ${tarea}
+        <button class="btn-pequeno" onclick="eliminarTarea('${nombre}', ${index})">❌</button>
+      </li>`).join("");
+
+    listaDiv.innerHTML = `
+      <h3>${nombre}
+        <button class="btn-pequeno rojo" onclick="eliminarLista('${nombre}')">Eliminar Lista</button>
+      </h3>
+      <ul>${tareasHTML}</ul>
+      <input type="text" id="input-${nombre}" placeholder="Nueva tarea para ${nombre}">
+      <button onclick="agregarTarea('${nombre}', 'input-${nombre}')">Agregar Tarea</button>
+    `;
+
+    contenedor.appendChild(listaDiv);
+  }
+}
+

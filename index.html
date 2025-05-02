@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do List</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon/list_logo.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-do List</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="icon/list_logo.png" type="image/x-icon" />
 </head>
 <body>
 
-    <div class="contenedor-principal">
-        <h2>Mi lista de Tareas</h2>
-        <form onsubmit="event.preventDefault(); agregarTarea();">
-            <label for="nuevaTarea">Tarea: </label>
-            <input type="text" id="nuevaTarea" placeholder="Ingresa la tarea">
-            <button type="submit">Guardar</button>
-        </form>
+  <div class="contenedor-principal">
+    <h2>Mis Listas de Tareas</h2>
 
-        <h3>Tareas de Aysah:</h3>
+    <!-- Crear nueva lista -->
+    <form onsubmit="event.preventDefault(); crearLista();">
+      <label for="nombreLista">Nombre de la nueva lista:</label>
+      <input type="text" id="nombreLista" placeholder="Ej: Compras, Trabajo, etc." required>
+      <button type="submit">Crear Lista</button>
+    </form>
 
-        <ul id="lista"></ul>
-    </div>
+    <!-- Contenedor dinámico de listas -->
+    <div id="todasLasListas"></div>
+  </div>
 
-    <script src="js/app.js"></script>
-    
+  <script src="js/app.js"></script>
 </body>
 </html>
+
