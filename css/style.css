@@ -26,6 +26,7 @@ h2 {
     color: #c71585;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 form {
@@ -37,6 +38,7 @@ form {
 label {
     font-weight: bold;
     color: #6a0dad;
+    font-size: 25px;
 }
 
 input[type="text"] {
@@ -92,7 +94,6 @@ li {
 
 li:hover {
     background-color: #ffc0cb;
-    text-decoration: line-through;
     color: #6a0dad;
 }
 
@@ -132,6 +133,20 @@ li:hover {
     background-color: #f8e1f4; /* color pastel por defecto */
 }
 
+.lista h3 {
+    font-size: 22px; /* Tamaño más grande para el título */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+/* Tareas dentro de la lista */
+.lista ul li {
+    font-size: 25px; /* Tamaño más grande para las tareas */
+    margin-bottom: 6px;
+}
+
 /* COLORES DIFERENTES POR CLASE */
 .lista.pastel-rosa { background-color: #ffe4e1; }
 .lista.pastel-amarillo { background-color: #fff9c4; }
@@ -142,7 +157,7 @@ li:hover {
 @media (max-width: 768px) {
     .contenedor-principal {
         width: 80%;
-        padding: 20px; /* ya tiene padding */
+        padding: 20px;
         margin-top: 40px;
     }
 
@@ -154,6 +169,16 @@ li:hover {
     li {
         font-size: 15px;
         padding: 10px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        word-break: break-word;
+    }
+
+    .btn-pequeno {
+        flex-shrink: 0;
+        white-space: nowrap;
+        margin-left: 10px;
     }
 
     #todasLasListas {
@@ -169,7 +194,7 @@ li:hover {
 /* CELULARES */
 @media (max-width: 480px) {
     .contenedor-principal {
-        padding: 10px 20px; /* Asegura que haya espacio en todos los lados */
+        padding: 10px 20px;
     }
 
     form {
@@ -187,10 +212,6 @@ li:hover {
     h2 {
         font-size: 18px;
         text-align: center;
-    }
-
-    li {
-        font-size: 14px;
     }
 
     #todasLasListas {
@@ -214,9 +235,19 @@ li:hover {
         margin: 5px 0;
     }
 
+    li {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Tarea alineada a la izquierda */
+        padding: 10px;
+        word-break: break-word;
+    }
+
     .btn-pequeno {
-        width: 100%;
-        margin-top: 5px;
+        width: 100%; /* Botón ocupa todo el ancho */
+        margin: 10px 0 0 0; /* Espaciado superior */
+        align-self: stretch; /* Asegura que se extienda en el contenedor */
     }
 }
 
