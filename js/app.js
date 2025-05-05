@@ -1,3 +1,4 @@
+
 let listas = JSON.parse(localStorage.getItem("listas")) || {};
 
 window.onload = mostrarListas;
@@ -69,3 +70,13 @@ function mostrarListas() {
   }
 }
 
+window.onload = function() {
+  // Tiempo en milisegundos para mostrar la splash screen (ej. 3 segundos)
+  setTimeout(function() {
+    // Ocultar la splash screen
+    document.getElementById("splashScreen").style.display = "none";
+    
+    // Mostrar el contenido principal
+    document.getElementById("mainContent").style.display = "block";
+  }, 3000); // Cambia el tiempo (en milisegundos) según tu preferencia
+};
