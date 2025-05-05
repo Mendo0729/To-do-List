@@ -1,8 +1,22 @@
-
+// Inicialización de listas desde localStorage
 let listas = JSON.parse(localStorage.getItem("listas")) || {};
 
-window.onload = mostrarListas;
+// Ejecutar todo cuando la ventana carga
+window.onload = function () {
+  // Mostrar listas al cargar
+  mostrarListas();
 
+  // Manejo del splash screen (si existe)
+  setTimeout(function () {
+    const splash = document.getElementById("splashScreen");
+    const main = document.getElementById("mainContent");
+
+    if (splash) splash.style.display = "none";
+    if (main) main.style.display = "block";
+  }, 1000);
+};
+
+// Crear una nueva lista
 function crearLista() {
   const nombre = document.getElementById("nombreLista").value.trim();
   if (nombre && !listas[nombre]) {
@@ -13,6 +27,7 @@ function crearLista() {
   }
 }
 
+// Agregar tarea a una lista existente
 function agregarTarea(nombreLista, inputId) {
   const input = document.getElementById(inputId);
   const tarea = input.value.trim();
@@ -23,22 +38,26 @@ function agregarTarea(nombreLista, inputId) {
   }
 }
 
+// Eliminar una tarea específica
 function eliminarTarea(nombreLista, index) {
   listas[nombreLista].splice(index, 1);
   guardarListas();
   mostrarListas();
 }
 
+// Eliminar toda la lista
 function eliminarLista(nombreLista) {
   delete listas[nombreLista];
   guardarListas();
   mostrarListas();
 }
 
+// Guardar datos en localStorage
 function guardarListas() {
   localStorage.setItem("listas", JSON.stringify(listas));
 }
 
+// Mostrar todas las listas en pantalla
 function mostrarListas() {
   const contenedor = document.getElementById("todasLasListas");
   contenedor.innerHTML = "";
@@ -55,7 +74,8 @@ function mostrarListas() {
       <li>
         ${tarea}
         <button class="btn-pequeno" onclick="eliminarTarea('${nombre}', ${index})">❌</button>
-      </li>`).join("");
+      </li>
+    `).join("");
 
     listaDiv.innerHTML = `
       <h3>${nombre}
@@ -69,14 +89,3 @@ function mostrarListas() {
     contenedor.appendChild(listaDiv);
   }
 }
-
-window.onload = function() {
-  // Tiempo en milisegundos para mostrar la splash screen (ej. 3 segundos)
-  setTimeout(function() {
-    // Ocultar la splash screen
-    document.getElementById("splashScreen").style.display = "none";
-    
-    // Mostrar el contenido principal
-    document.getElementById("mainContent").style.display = "block";
-  }, 3000); // Cambia el tiempo (en milisegundos) según tu preferencia
-};
