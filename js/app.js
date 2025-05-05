@@ -62,7 +62,22 @@ function mostrarListas() {
   const contenedor = document.getElementById("todasLasListas");
   contenedor.innerHTML = "";
 
-  const colores = ["pastel-rosa", "pastel-amarillo", "pastel-verde", "pastel-morado"];
+  const colores = [
+    "pastel-rosa", 
+    "pastel-amarillo", 
+    "pastel-verde", 
+    "pastel-morado", 
+    "pastel-azul",      // Azul pastel
+    "pastel-naranja",   // Naranja pastel
+    "pastel-lila",      // Lila pastel
+    "pastel-menta",     // Menta pastel
+    "pastel-peach",     // Durazno pastel
+    "pastel-gris",      // Gris pastel
+    "pastel-turquesa",  // Turquesa pastel
+    "pastel-rosado",    // Rosado pastel
+    "pastel-lima"       // Lima pastel
+  ];
+  
   let i = 0;
 
   for (let nombre in listas) {

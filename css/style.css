@@ -181,6 +181,16 @@ li:hover {
 .lista.pastel-amarillo { background-color: #fff9c4; }
 .lista.pastel-verde { background-color: #d0f0c0; }
 .lista.pastel-morado { background-color: #e6e6fa; }
+.lista.pastel-azul { background-color: #b3e0ff; } /* Azul pastel */
+.lista.pastel-naranja { background-color: #ffcc99; } /* Naranja pastel */
+.lista.pastel-lila { background-color: #d8a7f5; } /* Lila pastel */
+.lista.pastel-menta { background-color: #a8f7e4; } /* Menta pastel */
+.lista.pastel-peach { background-color: #fad0c4; } /* Durazno pastel */
+.lista.pastel-gris { background-color: #d3d3d3; } /* Gris pastel */
+.lista.pastel-turquesa { background-color: #80e0d3; } /* Turquesa pastel */
+.lista.pastel-rosado { background-color: #f7c6d7; } /* Rosado pastel */
+.lista.pastel-lima { background-color: #d0f7c7; } /* Lima pastel */
+
 
 /* TABLETS */
 @media (max-width: 768px) {
