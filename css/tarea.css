@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&family=UoqMunThenKhung&display=swap');
+
+:root {
+  --pastel-rosa: #FFD1DC;
+  --pastel-mint: #B5EAD7;
+  --pastel-lavanda: #E2D1F9;
+  --pastel-cielo: #A2D2FF;
+  --pastel-limon: #FDFD96;
+  --pastel-coral: #FFB7B2;
+  --pastel-lila: #D8BFD8;
+  --pastel-crema: #FFF8E1;
+  --texto-oscuro: #333333;
+  --texto-claro: #f8f9fa;
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Playwrite RO', sans-serif;
+  background-color: var(--pastel-crema);
+  color: var(--texto-oscuro);
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Formulario principal */
+form {
+  margin-bottom: 2rem;
+  background-color: var(--pastel-lila);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: var(--pastel-coral);
+  color: var(--texto-oscuro);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: var(--pastel-rosa);
+}
+
+/* Contenedor de listas */
+#listasContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Cada tarjeta de lista */
+#listasContainer > div {
+  background-color: var(--pastel-cielo);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#listasContainer h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--texto-oscuro);
+}
+
+/* Tareas */
+ul {
+  list-style: none;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  background: var(--pastel-mint);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li strong {
+  color: var(--texto-oscuro);
+}
+
+/* Botón pequeño */
+.btn-small {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  background-color: var(--pastel-limon);
+  color: var(--texto-oscuro);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background 0.3s;
+  border-radius: 4px;
+  border: none;
+}
+
+.btn-small:hover {
+  background-color: var(--pastel-rosa);
+}
+
+/* Inputs internos de cada lista */
+.lista-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.lista-inputs input[type="text"],
+.lista-inputs input[type="date"] {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: var(--pastel-crema);
+  font-size: 1rem;
+}
+
+.lista-inputs button {
+  flex: 0 0 auto;
+  background-color: var(--pastel-coral);
+  color: var(--texto-oscuro);
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+}
+
+.lista-inputs button:hover {
+  background-color: var(--pastel-rosa);
+}
+
+/* Responsive grid */
+@media (max-width: 900px) {
+  #listasContainer {
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #listasContainer {
+    grid-template-columns: 1fr;
+  }
+}

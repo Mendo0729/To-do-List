@@ -1,293 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&family=UoqMunThenKhung&display=swap');
 
+:root {
+  /* Paleta pastel */
+  --pastel-rosa: #FFD1DC;
+  --pastel-mint: #B5EAD7;
+  --pastel-lavanda: #E2D1F9;
+  --pastel-cielo: #A2D2FF;
+  --pastel-limon: #FDFD96;
+  --pastel-coral: #FFB7B2;
+  --pastel-lila: #D8BFD8;
+  --pastel-crema: #FFF8E1;
+  --texto-oscuro: #333333;
+  --texto-claro: #f8f9fa;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite RO", cursive;
+}
 
 body {
-    font-family: 'Great Vibes', cursive;
-    background: #fff0f5; /* rosa claro */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  background-color: var(--pastel-crema);
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-/* Splash Screen */
-.splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Mantén la splash screen por encima del contenido */
-  }
-  
-  .splash-logo {
-    width: 150px; /* Ajusta el tamaño de tu logo */
-    animation: fadeIn 2s ease-in-out; /* Animación de aparición */
-  }
-  
-  /* Animación de desvanecimiento */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-.contenedor-principal {
-    width: 100%;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+h1 {
+  color: var(--pastel-lila);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
 }
 
-h2 {
-    color: #c71585;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 30px;
+a {
+  display: inline-block;
+  background-color: var(--pastel-mint);
+  color: var(--texto-oscuro);
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-form {
-    display: flex;
+a:hover {
+  background-color: transparent;
+  border-color: var(--pastel-mint);
+  transform: translateY(-2px);
+}
+
+/* Calendario */
+#calendar {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Eventos */
+.fc-event {
+  background-color: var(--pastel-lavanda) !important;
+  border: none !important;
+  color: var(--texto-oscuro) !important;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 2px 4px;
+}
+
+.fc-daygrid-event-dot {
+  border-color: var(--pastel-coral) !important;
+}
+
+.fc-toolbar-title {
+  color: var(--pastel-lila);
+}
+
+.fc-button {
+  background-color: var(--pastel-cielo) !important;
+  border: none !important;
+}
+
+/* Responsive calendar improvements */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #calendar {
+    padding: 10px;
+  }
+
+  .fc-toolbar {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .fc-toolbar-title {
+    font-size: 1.2rem;
+  }
+
+  /* Mejora de visibilidad de eventos */
+  .fc .fc-daygrid-day-frame {
+    min-height: 6em;
+  }
+
+  .fc .fc-daygrid-event {
+    white-space: normal !important;
+    font-size: 0.8rem !important;
+    line-height: 1.2;
+  }
+
+  .fc .fc-event-title {
+    overflow-wrap: anywhere;
+  }
 }
 
-label {
-    font-weight: bold;
-    color: #6a0dad;
-    font-size: 25px;
-}
-
-input[type="text"] {
-    padding: 10px;
-    border: 2px solid #dda0dd;
-    border-radius: 8px;
-    outline: none;
-    font-size: 16px;
-}
-
-input[type="text"]:focus {
-    border-color: #c71585;
-    background-color: #fff8fc;
-}
-
-button {
-    background-color: #c71585;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #a0136f;
-}
-
-h3 {
-    color: #c71585;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-li {
-    background: #ffe4e1;
-    margin-bottom: 10px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-li:hover {
-    background-color: #ffc0cb;
-    color: #6a0dad;
-}
-
-.btn-pequeno {
-    font-size: 14px;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.btn-pequeno.rojo {
-    background-color: #ff6b81;
-    color: white;
-}
-
-.btn-pequeno.rojo:hover {
-    background-color: #e0435a;
-}
-
-/* CONTENEDOR GENERAL DE TODAS LAS LISTAS */
-#todasLasListas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* ESTILOS PARA CADA LISTA */
-.lista {
-    flex: 1 1 300px;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    background-color: #f8e1f4; /* color pastel por defecto */
-}
-
-.lista h3 {
-    font-size: 22px; /* Tamaño más grande para el título */
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-
-
-/* Tareas dentro de la lista */
-.lista ul li {
-    font-size: 25px; /* Tamaño más grande para las tareas */
-    margin-bottom: 6px;
-}
-
-/* COLORES DIFERENTES POR CLASE */
-.lista.pastel-rosa { background-color: #ffe4e1; }
-.lista.pastel-amarillo { background-color: #fff9c4; }
-.lista.pastel-verde { background-color: #d0f0c0; }
-.lista.pastel-morado { background-color: #e6e6fa; }
-.lista.pastel-azul { background-color: #b3e0ff; } /* Azul pastel */
-.lista.pastel-naranja { background-color: #ffcc99; } /* Naranja pastel */
-.lista.pastel-lila { background-color: #d8a7f5; } /* Lila pastel */
-.lista.pastel-menta { background-color: #a8f7e4; } /* Menta pastel */
-.lista.pastel-peach { background-color: #fad0c4; } /* Durazno pastel */
-.lista.pastel-gris { background-color: #d3d3d3; } /* Gris pastel */
-.lista.pastel-turquesa { background-color: #80e0d3; } /* Turquesa pastel */
-.lista.pastel-rosado { background-color: #f7c6d7; } /* Rosado pastel */
-.lista.pastel-lima { background-color: #d0f7c7; } /* Lima pastel */
-
-
-/* TABLETS */
-@media (max-width: 768px) {
-    .contenedor-principal {
-        width: 80%;
-        padding: 20px;
-        margin-top: 40px;
-    }
-
-    input[type="text"], button {
-        font-size: 15px;
-        padding: 8px;
-    }
-
-    li {
-        font-size: 15px;
-        padding: 10px 14px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        word-break: break-word;
-    }
-
-    .btn-pequeno {
-        flex-shrink: 0;
-        white-space: nowrap;
-        margin-left: 10px;
-    }
-
-    #todasLasListas {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .lista {
-        width: 90%;
-    }
-}
-
-/* CELULARES */
 @media (max-width: 480px) {
-    .contenedor-principal {
-        padding: 10px 20px;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
 
-    form {
-        display: flex;
-        flex-direction: column;
-    }
+  a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 
-    input[type="text"],
-    button {
-        width: 100%;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        font-size: 18px;
-        text-align: center;
-    }
-
-    #todasLasListas {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .lista {
-        width: 100%;
-    }
-
-    .lista form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .lista form input[type="text"],
-    .lista form button {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    li {
-        font-size: 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* Tarea alineada a la izquierda */
-        padding: 10px;
-        word-break: break-word;
-    }
-
-    .btn-pequeno {
-        width: 100%; /* Botón ocupa todo el ancho */
-        margin: 10px 0 0 0; /* Espaciado superior */
-        align-self: stretch; /* Asegura que se extienda en el contenedor */
-    }
+  .fc-button {
+    padding: 5px 8px !important;
+    font-size: 0.8rem !important;
+  }
 }
-
-
