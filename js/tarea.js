@@ -33,7 +33,7 @@ function renderizarListas() {
             ${tareasHTML}
             <div class="lista-inputs">
                 <input type="text" id="input-titulo-${nombre}" placeholder="Título de tarea" />
-                <input type="date" id="input-fecha-${nombre}" />
+                <input type="date" id="input-fecha-${nombre}" placeholder="Fecha" />
                 <button onclick="agregarTarea('${nombre}')">Agregar tarea</button>
             </div>
         `;

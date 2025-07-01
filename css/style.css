@@ -90,6 +90,20 @@ a:hover {
   border: none !important;
 }
 
+.puntos-container {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.evento-punto {
+  width: 6px;
+  height: 6px;
+  background-color: var(--pastel-lavanda);
+  border-radius: 50%;
+}
+
 /* Responsive calendar improvements */
 @media (max-width: 768px) {
   body {
